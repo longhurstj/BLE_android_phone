@@ -1,0 +1,41 @@
+    // First sort the values in the list to interpret correctly the bytes
+    List<int> valueSorted = [];
+    valueSorted.insert(0, value[value.indexOf('*'.codeUnitAt(0))]);
+    valueSorted.insert(1, value[value.indexOf('L'.codeUnitAt(1))]);
+    for (var i = 0; i < 99; i++) {
+      valueSorted.insert(i + 2, value[i + 3]);
+      valueSorted.insert(i + 3, value[i + 2]);
+    }
+
+    // Get flags directly from list
+    var flags = valueSorted[0];
+
+    // Get the ByteBuffer view of the data to recode it later
+    var buffer =
+        new Uint8List.fromList(valueSorted).buffer; // Buffer bytes from list
+
+    if (flags == 0) {
+      // HR
+      var hrBuffer = new ByteData.view(buffer, 1, 1); // Get second byte
+      var hr = hrBuffer.getUint8(0); // Recode as UINT8
+      print(hr);
+    }
+
+    if (flags == 16) {
+      // HR
+      var hrBuffer = new ByteData.view(buffer, 1, 1); // Get second byte
+      var hr = hrBuffer.getUint8(0); // Recode as UINT8
+      print(hr);
+
+      // RR (more than one can be retrieved in the list)
+      var nRr = (valueSorted.length - 2) /
+          2; // Remove flags and hr from byte count; then split in two since RR is coded as UINT16
+      List<int> rrs = [];
+      for (var i = 0; i < nRr; i++) {
+        var rrBuffer = new ByteData.view(buffer, 2 + (i * 2),
+            2); // Get pairs of bytes counting since the 3rd byte
+        var rr = rrBuffer.getUint16(0); // Recode as UINT16
+        rrs.insert(i, rr);
+      }
+      print(rrs);
+    }

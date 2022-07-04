@@ -1,0 +1,38 @@
+import 'dart:async';
+import 'dart:convert';
+import 'dart:ffi';
+import 'dart:typed_data';
+import 'dart:io';
+
+// For using PlatformException
+import 'package:flutter/services.dart';
+
+import 'package:flutter/material.dart';
+import 'package:flutter_bluetooth_serial/flutter_bluetooth_serial.dart';
+
+void datastream {
+  List<int> _buffer = List<int>.empty(growable: true);
+  int offset;
+  List<int> lcdbuf = List<int>.empty(growable: true);
+  Uint8 fred;
+  external Pointer<Uint8> elementAt(lcdbuf);
+
+  lcdbuf = slave.allocDMABuffer(_buffer.length);
+  setbuffer(fred);
+
+    while (connection.isConnected) {
+      // show received data
+      for (int i = 0; i < _buffer.length; ++i)
+        print(lcdbuf[i]);
+    }
+
+    void setbuffer(data) {
+    for (int i = 0; i < 99; i++) {
+      data[i] = (0xFF - i) & 0xFF;
+    }
+    memset(data, 0, 99);
+  }
+
+  void memset(int start, int length, int value) {
+    _buffer.fillRange(offset + start, offset + start + length, value);
+  }}
