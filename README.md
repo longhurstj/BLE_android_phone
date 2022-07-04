@@ -72,7 +72,7 @@ Now, add these two lines of code :
 
 # License
 
-Copyright (c) 2019 Souvik Biswas
+Copyright (c) 2022 Joshua Longhurst
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
