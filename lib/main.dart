@@ -181,9 +181,10 @@ class _BluetoothAppState extends State<BluetoothApp> {
       home: Scaffold(
         key: _scaffoldKey,
         appBar: AppBar(
-          title: Image.asset('images/PrestigeMedicalLogo-WHITE.png',
-              width: 200, height: 100),
-          backgroundColor: Colors.grey,
+          // title: Image.asset('images/PrestigeMedicalLogo-WHITE.png',
+          //     width: 200, height: 100),
+          title: Text("Desktop Connect App"),
+          backgroundColor: Colors.red,
           actions: <Widget>[
             FlatButton.icon(
               icon: Icon(
@@ -374,18 +375,18 @@ class _BluetoothAppState extends State<BluetoothApp> {
                                       ),
                                     ]
                                   : <Widget>[
-                                      Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          Text(
-                                            'disconnected',
-                                            style: TextStyle(
-                                              fontWeight: FontWeight.normal,
-                                            ),
-                                          ),
-                                        ],
-                                      ),
+                                      // Row(
+                                      //   mainAxisAlignment:
+                                      //       MainAxisAlignment.center,
+                                      //   children: [
+                                      //     Text(
+                                      //       'disconnected',
+                                      //       style: TextStyle(
+                                      //         fontWeight: FontWeight.normal,
+                                      //       ),
+                                      //     ),
+                                      //   ],
+                                      // ),
                                     ],
                             ),
                           ),
@@ -427,75 +428,74 @@ class _BluetoothAppState extends State<BluetoothApp> {
                                   onPressed: _connected
                                       ? _sendVacMessageToBluetooth
                                       : null,
-                                  child: const Text("B",
-                                      style: TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 35)),
+                                  child: const Icon(
+                                      Icons.power_settings_new_rounded,
+                                      size: 35),
                                 ),
-                                TextButton(
-                                  //DRYING BUTTON
-                                  onPressed: _connected
-                                      ? _sendDryingMessageToBluetooth
-                                      : null,
-                                  child: Icon(Icons.whatshot, size: 35),
-                                ),
+                                // TextButton(
+                                //   //DRYING BUTTON
+                                //   onPressed: _connected
+                                //       ? _sendDryingMessageToBluetooth
+                                //       : null,
+                                //   child: Icon(Icons.whatshot, size: 35),
+                                // ),
                               ],
                             ),
                           ),
                         ),
                       ),
-                      Padding(
-                        //lower row of advance buttons
-                        padding: const EdgeInsets.only(left: 20.0, right: 20.0),
-                        child: Card(
-                          shape: RoundedRectangleBorder(
-                            side: new BorderSide(
-                              color: _deviceState == 0
-                                  ? colors['neutralBorderColor']
-                                  : _deviceState == 1
-                                      ? colors['onBorderColor']
-                                      : colors['offBorderColor'],
-                              width: 3,
-                            ),
-                            borderRadius: BorderRadius.circular(4.0),
-                          ),
-                          elevation: _deviceState == 0 ? 4 : 0,
-                          child: Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              children: <Widget>[
-                                TextButton(
-                                  //NON VAC BUTTON
-                                  onPressed: _connected
-                                      ? _sendNonvacMessageToBluetooth
-                                      : null,
-                                  child: Text("N",
-                                      style: TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 35)),
-                                ),
-                                TextButton(
-                                  //START BUTTON
-                                  onPressed: _connected
-                                      ? _sendStartMessageToBluetooth
-                                      : null,
-                                  child: const Icon(Icons.play_circle_outline,
-                                      size: 35),
-                                ),
-                                TextButton(
-                                  //DOOR BUTTON
-                                  onPressed: _connected
-                                      ? _sendDoorMessageToBluetooth
-                                      : null,
-                                  child: const Icon(Icons.sensor_door_outlined,
-                                      size: 35),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
+                      // Padding(
+                      //   //lower row of advance buttons
+                      //   padding: const EdgeInsets.only(left: 20.0, right: 20.0),
+                      //   child: Card(
+                      //     shape: RoundedRectangleBorder(
+                      //       side: new BorderSide(
+                      //         color: _deviceState == 0
+                      //             ? colors['neutralBorderColor']
+                      //             : _deviceState == 1
+                      //                 ? colors['onBorderColor']
+                      //                 : colors['offBorderColor'],
+                      //         width: 3,
+                      //       ),
+                      //       borderRadius: BorderRadius.circular(4.0),
+                      //     ),
+                      //     elevation: _deviceState == 0 ? 4 : 0,
+                      //     child: Padding(
+                      //       padding: const EdgeInsets.all(8.0),
+                      //       child: Row(
+                      //         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      //         children: <Widget>[
+                      //           TextButton(
+                      //             //NON VAC BUTTON
+                      //             onPressed: _connected
+                      //                 ? _sendNonvacMessageToBluetooth
+                      //                 : null,
+                      //             child: Text("N",
+                      //                 style: TextStyle(
+                      //                     fontWeight: FontWeight.bold,
+                      //                     fontSize: 35)),
+                      //           ),
+                      //           TextButton(
+                      //             //START BUTTON
+                      //             onPressed: _connected
+                      //                 ? _sendStartMessageToBluetooth
+                      //                 : null,
+                      //             child: const Icon(Icons.play_circle_outline,
+                      //                 size: 35),
+                      //           ),
+                      //           TextButton(
+                      //             //DOOR BUTTON
+                      //             onPressed: _connected
+                      //                 ? _sendDoorMessageToBluetooth
+                      //                 : null,
+                      //             child: const Icon(Icons.sensor_door_outlined,
+                      //                 size: 35),
+                      //           ),
+                      //         ],
+                      //       ),
+                      //     ),
+                      //   ),
+                      // ),
                     ],
                   ),
                   Container(

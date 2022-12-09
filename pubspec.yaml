@@ -33,10 +33,10 @@ dev_dependencies:
   flutter_launcher_name: ^0.0.1
 
 flutter_launcher_name:
-  name: "Prestige Connect"
+  name: "Desktop Connect"
 
 flutter_icons:
-  image_path: "images/Prestige Connect-GREY.png"
+  image_path: "images/power_icon.png"
   android: true 
   ios: true
 
